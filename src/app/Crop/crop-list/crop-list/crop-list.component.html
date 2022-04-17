@@ -1,0 +1,49 @@
+<h2>Crop List</h2>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Search</label>
+  <input
+    type="text"
+    class="form-control"
+    id="search"
+    placeholder="Enter to Search"
+    [(ngModel)]="nameSearch"
+  />
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Crop Id</th>
+      <th>Crop Name</th>
+      <th>Crop Quantity</th>
+      <th>Crop Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let crop of crops">
+      <td>{{ crop.cropid }}</td>
+      <td>{{ crop.cropname }}</td>
+      <td>{{ crop.cropquantity }}</td>
+      <td>{{ crop.cropprice }}</td>
+      <td>
+        <button (click)="updateCrop(crop.cropid)" class="btn btn-info">
+          Update
+        </button>
+        <button
+          (click)="deleteCrop(crop.cropid)"
+          class="btn btn-danger"
+          style="margin-left: 10px"
+        >
+          Delete
+        </button>
+        <!-- <button
+          (click)="cropDetails(crop.cropid)"
+          class="btn btn-info"
+          style="margin-left: 10px"
+        >
+          View
+        </button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>

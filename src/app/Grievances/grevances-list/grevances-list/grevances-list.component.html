@@ -1,0 +1,55 @@
+<h2>Grievance List</h2>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Search</label>
+  <input
+    type="text"
+    class="form-control"
+    id="search"
+    placeholder="Enter to Search"
+    [(ngModel)]="nameSearch"
+  />
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Complaint Id</th>
+      <th>Complaint Message</th>
+      <th>Farmer Name</th>
+      <th>Farmer Address</th>
+      <th>Farmer Contact Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let grievance of grievances">
+      <td>{{ grievance.complaintId }}</td>
+      <td>{{ grievance.complaintMessage }}</td>
+      <td>{{ grievance.farmer.farmer_name }}</td>
+      <td>{{ grievance.farmer.farmer_address }}</td>
+      <td>{{ grievance.farmer.farmer_contact_number }}</td>
+
+      <td>
+        <button
+          (click)="updateGrievance(grievance.complaintId)"
+          class="btn btn-info"
+        >
+          Update
+        </button>
+        <button
+          (click)="deleteGrievance(grievance.complaintId)"
+          class="btn btn-danger"
+          style="margin-left: 10px"
+        >
+          Delete
+        </button>
+        <button
+          (click)="grievanceDetails(grievance.complaintId)"
+          class="btn btn-info"
+          style="margin-left: 10px"
+        >
+          View
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

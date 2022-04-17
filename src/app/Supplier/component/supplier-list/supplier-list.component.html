@@ -1,0 +1,79 @@
+<div class="supplier">
+  <h1 style="text-align: center" class="toptext">Supplier List</h1>
+  <div class="sunny">
+    <p>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample"
+      >
+        Search 🔍
+      </button>
+    </p>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          placeholder="Enter Name To Search"
+          [(ngModel)]="nameSearch"
+        />
+      </div>
+    </div>
+    <!-- <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Search</label>
+  <input
+    type="text"
+    class="form-control"
+    id="search"
+    placeholder="Enter to Search"
+    [(ngModel)]="nameSearch"
+  />
+</div> -->
+    <table class="table table-striped">
+      <thead>
+        <tr style="background-color: black; color: azure">
+          <th>Supplier Id</th>
+          <th>Supplier Name</th>
+          <th>Supplier Address</th>
+          <th>Supplier Phone</th>
+          <th>Actiona</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let supplier of suppliers | filter: nameSearch">
+          <td>{{ supplier.supplierId }}</td>
+          <td>{{ supplier.supplierName }}</td>
+          <td>{{ supplier.supplierAddress }}</td>
+          <td>{{ supplier.supplierPhone }}</td>
+          <td>
+            <button
+              (click)="updateSupplier(supplier.supplierId)"
+              class="btn btn-info vtt raise"
+            >
+              Update
+            </button>
+            <button
+              (click)="deleteSupplier(supplier.supplierId)"
+              class="btn btn-danger vvt raise"
+              style="margin-left: 10px"
+            >
+              Delete
+            </button>
+            <button
+              (click)="supplierDetails(supplier.supplierId)"
+              class="btn btn-info vvt raise"
+              style="margin-left: 10px"
+            >
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

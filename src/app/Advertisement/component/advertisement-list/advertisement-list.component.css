@@ -1,0 +1,32 @@
+h1 {
+  margin: 50px 0px 50px 0px;
+  padding: 50px 0px 50px 0px;
+}
+.toptext {
+  font-size: 60px;
+  text-shadow: 2px 2px black;
+}
+table {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  background-color: azure;
+  margin: 50px 0px 50px 0px;
+}
+
+tr:hover {
+  border-radius: 0%;
+  box-shadow: 0 0 50px #ccc;
+}
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+.vtt {
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.8em 0.8em;
+}

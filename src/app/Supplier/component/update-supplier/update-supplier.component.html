@@ -1,0 +1,39 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Update Employee</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-floating mb-3">
+      <label for="floatingInput">Supplier Name</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        [(ngModel)]="supplier.supplierName"
+        name="firstName"
+      />
+    </div>
+    <div class="form-floating">
+      <label for="floatingInput">Supplier Address </label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        [(ngModel)]="supplier.supplierAddress"
+        name="address"
+      />
+    </div>
+    <div class="form-floating">
+      <label for="floatingInput">Supplier Phone </label>
+      <input
+        type="phonenum"
+        class="form-control"
+        id="number"
+        pattern="^\d{4}-\d{3}-\d{4}$"
+        required
+        [(ngModel)]="supplier.supplierPhone"
+        name="number"
+      />
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</div>

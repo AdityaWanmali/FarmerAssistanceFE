@@ -1,0 +1,38 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Create Grievance</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-floating mb-3">
+      <label for="floatingInput">Complaint Details</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        [(ngModel)]="grievance.complaintId"
+        name="firstName"
+      />
+    </div>
+    <div class="form-floating">
+      <label for="floatingInput">Complaint Message </label>
+      <input
+        type="text"
+        class="form-control"
+        id="message"
+        [(ngModel)]="grievance.complaintMessage"
+        name="message"
+      />
+    </div>
+    <div class="form-floating">
+      <label for="floatingInput">Farmer ID </label>
+      <input
+        type="text"
+        class="form-control"
+        id="number"
+        [(ngModel)]="farmer.farmer_id"
+        name="number"
+      />
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</div>

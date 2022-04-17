@@ -1,0 +1,69 @@
+<div class="supplier">
+  <h1 style="text-align: center" class="toptext">Farmer List</h1>
+  <div class="sunny">
+    <p>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample"
+      >
+        Search 🔍
+      </button>
+    </p>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          placeholder="Enter Name To Search"
+          [(ngModel)]="nameSearch"
+        />
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Farmer Id</th>
+          <th>Farmer Name</th>
+          <th>Farmer Address</th>
+          <th>Farmer Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let farmer of farmers">
+          <td>{{ farmer.farmer_id }}</td>
+          <td>{{ farmer.farmer_name }}</td>
+          <td>{{ farmer.farmer_address }}</td>
+          <td>{{ farmer.farmer_contact_number }}</td>
+          <td>
+            <button
+              (click)="updateFarmer(farmer.farmer_id)"
+              class="btn btn-info"
+            >
+              Update
+            </button>
+            <button
+              (click)="deleteFarmer(farmer.farmer_id)"
+              class="btn btn-danger"
+              style="margin-left: 10px"
+            >
+              Delete
+            </button>
+            <button
+              (click)="farmerDetails(farmer.farmer_id)"
+              class="btn btn-info"
+              style="margin-left: 10px"
+            >
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

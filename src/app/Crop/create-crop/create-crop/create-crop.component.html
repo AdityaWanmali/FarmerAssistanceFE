@@ -1,0 +1,39 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Create Crop</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-floating mb-3">
+      <label for="floatingInput">Crop Name</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="cropName"
+        [(ngModel)]="crop.cropname"
+        name="cropName"
+      />
+    </div>
+    <div class="form-floating">
+      <label for="floatingInput">Crop Quantity</label>
+      <input
+        type="text"
+        class="form-control"
+        id="crop_quantity"
+        [(ngModel)]="crop.cropquantity"
+        name="crop_quantity"
+      />
+    </div>
+    <div class="form-floating">
+      <label for="floatingInput">Crop Price </label>
+      <input
+        type="text"
+        class="form-control"
+        id="number"
+        pattern="^\d{4}-\d{3}-\d{4}$"
+        required
+        [(ngModel)]="crop.cropprice"
+        name="number"
+      />
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</div>

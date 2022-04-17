@@ -1,0 +1,33 @@
+<h2>Advertisement List</h2>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Search</label>
+  <input
+    type="text"
+    class="form-control"
+    id="search"
+    placeholder="Enter to Search"
+    [(ngModel)]="nameSearch"
+  />
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Advertisement Id</th>
+      <th>Advertisement Name</th>
+      <th>Supplier Name</th>
+      <th>Supplier Address</th>
+      <th>Supplier Phone</th>
+
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let advertisement of advertisements">
+      <td>{{ advertisement.addId }}</td>
+      <td>{{ advertisement.adver }}</td>
+      <td>{{ advertisement.supplier.supplierName }}</td>
+      <td>{{ advertisement.supplier.supplierAddress }}</td>
+      <td>{{ advertisement.supplier.supplierPhone }}</td>
+    </tr>
+  </tbody>
+</table>

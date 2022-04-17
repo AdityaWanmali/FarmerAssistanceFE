@@ -1,0 +1,66 @@
+<div class="supplier">
+  <h1 style="text-align: center" class="toptext">Admin List</h1>
+  <div class="sunny">
+    <p>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample"
+      >
+        Search 🔍
+      </button>
+    </p>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          placeholder="Enter Name To Search"
+          [(ngModel)]="nameSearch"
+        />
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr style="background-color: black; color: azure">
+          <th>Admin Id</th>
+          <th>Admin Name</th>
+          <th>Admin Mail</th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of admins">
+          <td>{{ admin.adminId }}</td>
+          <td>{{ admin.adminUsername }}</td>
+          <td>{{ admin.adminMail }}</td>
+
+          <td>
+            <button (click)="updateAdmin(admin.adminId)" class="btn btn-info">
+              Update
+            </button>
+            <button
+              (click)="deleteAdmin(admin.adminId)"
+              class="btn btn-danger"
+              style="margin-left: 10px"
+            >
+              Delete
+            </button>
+            <button
+              (click)="adminDetails(admin.adminId)"
+              class="btn btn-info"
+              style="margin-left: 10px"
+            >
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
